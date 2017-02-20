@@ -11,14 +11,16 @@ public class Item{
     private String name;
     private PRIORITY priority;
     private Date date;
+    private String notes;
 
     public enum PRIORITY {HIGH, MEDIUM, LOW;}
 
-    public Item(String id, String name, PRIORITY priority, Date date) {
+    public Item(String id, String name, PRIORITY priority, Date date, String n) {
         this.id = id;
         this.name = name;
         this.priority = priority;
         this.date = date;
+        this.notes = n;
     }
 
     public Item(){
@@ -65,6 +67,14 @@ public class Item{
     }
     public void setDate(Date dt) {
         this.date = dt;
+    }
+
+    public String getNotes() {
+        return this.notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     @Override

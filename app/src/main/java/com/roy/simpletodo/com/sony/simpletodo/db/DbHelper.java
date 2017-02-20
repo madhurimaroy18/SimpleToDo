@@ -16,12 +16,13 @@ public class DbHelper extends SQLiteOpenHelper{
                     DbContract.DbEntry.COLUMN_NAME_ID + " TEXT PRIMARY KEY," +
                     DbContract.DbEntry.COLUMN_NAME_TITLE + " TEXT," +
                     DbContract.DbEntry.COLUMN_NAME_PRIORITY + " TEXT," +
-                    DbContract.DbEntry.COLUMN_NAME_DATE + " TEXT)";
+                    DbContract.DbEntry.COLUMN_NAME_DUEDATE + " TEXT," +
+                    DbContract.DbEntry.COLUMN_NAME_NOTES + " TEXT)";
 
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + DbContract.DbEntry.TABLE_NAME;
 
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "simpletodo.db";
 
     public DbHelper(Context context) {

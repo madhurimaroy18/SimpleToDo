@@ -32,6 +32,7 @@ class DbActivity {
         ArrayList<Item> items = new ArrayList<>();
         DbHelper mDbHelper = new DbHelper(this.ctx);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
+   //     mDbHelper.onUpgrade(db, 1, 2);
 
 // Define a projection that specifies which columns from the database
 // you will actually use after this query.
@@ -39,7 +40,8 @@ class DbActivity {
                 DbContract.DbEntry.COLUMN_NAME_ID,
                 DbContract.DbEntry.COLUMN_NAME_TITLE,
                 DbContract.DbEntry.COLUMN_NAME_PRIORITY,
-                DbContract.DbEntry.COLUMN_NAME_DATE
+                DbContract.DbEntry.COLUMN_NAME_DUEDATE,
+                DbContract.DbEntry.COLUMN_NAME_NOTES
         };
 
 // Filter results WHERE "title" = 'My Title'
@@ -66,10 +68,11 @@ class DbActivity {
             String name = cursor.getString(cursor.getColumnIndexOrThrow(DbContract.DbEntry.COLUMN_NAME_TITLE));
             String id = cursor.getString(cursor.getColumnIndexOrThrow(DbContract.DbEntry.COLUMN_NAME_ID));
             String pr = cursor.getString(cursor.getColumnIndexOrThrow(DbContract.DbEntry.COLUMN_NAME_PRIORITY));
-            String strD = cursor.getString(cursor.getColumnIndexOrThrow(DbContract.DbEntry.COLUMN_NAME_DATE));
+            String strD = cursor.getString(cursor.getColumnIndexOrThrow(DbContract.DbEntry.COLUMN_NAME_DUEDATE));
             Date d = DateTime.stringToDate(strD, "yyyy-MM-dd");
+            String n = cursor.getString(cursor.getColumnIndexOrThrow(DbContract.DbEntry.COLUMN_NAME_NOTES));
 
-            Item i = new Item(id, name, Item.PRIORITY.valueOf(pr), d);
+            Item i = new Item(id, name, Item.PRIORITY.valueOf(pr), d, n);
             items.add(i);
         }
         cursor.close();
@@ -89,7 +92,8 @@ class DbActivity {
         values.put(DbContract.DbEntry.COLUMN_NAME_TITLE, it.getName());
         values.put(DbContract.DbEntry.COLUMN_NAME_PRIORITY, it.getPriority().toString());
         String fdate = DateTime.dateToString(it.getDate(), "yyyy-MM-dd");
-        values.put(DbContract.DbEntry.COLUMN_NAME_DATE, fdate);
+        values.put(DbContract.DbEntry.COLUMN_NAME_DUEDATE, fdate);
+        values.put(DbContract.DbEntry.COLUMN_NAME_NOTES, it.getNotes());
 
 // Insert the new row, returning the primary key value of the new row
         try {
@@ -141,7 +145,9 @@ class DbActivity {
         values.put(DbContract.DbEntry.COLUMN_NAME_TITLE, newi.getName());
         values.put(DbContract.DbEntry.COLUMN_NAME_PRIORITY, newi.getPriority().toString());
         String fdate = DateTime.dateToString(newi.getDate(), "yyyy-MM-dd");
-        values.put(DbContract.DbEntry.COLUMN_NAME_DATE, fdate);
+        values.put(DbContract.DbEntry.COLUMN_NAME_DUEDATE, fdate);
+        values.put(DbContract.DbEntry.COLUMN_NAME_NOTES, newi.getNotes());
+
 
 // Which row to update, based on the title
         String selection = DbContract.DbEntry.COLUMN_NAME_ID + " LIKE ?";
