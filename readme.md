@@ -24,7 +24,7 @@ The following **optional** features are implemented:
 * [X] Tweak the style improving the UI / UX, play with colors, images or backgrounds
 
 The following **additional** features are implemented:
-
+* [x] set App icon
 * [x] Implemented Date picker for setting the due date in edit DialogFragment.
 * [x] Used db schema and contract class for good readability(https://developer.android.com/training/basics/data-storage/databases.html)
 * [x] Name cannot be null. Toast message display on clicking add button with null or empty new item. Same in edit view.
@@ -35,7 +35,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Video Walkthrough (http://i.imgur.com/ymbU6xo.gifv)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
