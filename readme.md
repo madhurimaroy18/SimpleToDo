@@ -4,7 +4,7 @@ SimpleToDo is an android app that allows building a todo list and basic todo ite
 
 Submitted by: Madhurima Roy
 
-Time spent: 20 hours spent in total
+Time spent: 40 hours spent in total
 
 ## User Stories
 
@@ -19,16 +19,17 @@ The following **optional** features are implemented:
 * [x] Persist the todo items [into SQLite](http://guides.codepath.com/android/Persisting-Data-to-the-Device#sqlite) instead of a text file
 * [x] Improve style of the todo items in the list [using a custom adapter](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView)
 * [x] Add support for completion due dates for todo items (and display within listview item)
-* [ ] Use a [DialogFragment](http://guides.codepath.com/android/Using-DialogFragment) instead of new Activity for editing items
+* [x] Use a [DialogFragment](http://guides.codepath.com/android/Using-DialogFragment) instead of new Activity for editing items
 * [x] Add support for selecting the priority of each todo item (and display in listview item)
 * [X] Tweak the style improving the UI / UX, play with colors, images or backgrounds
 
 The following **additional** features are implemented:
 
-* [x] Implemented Date picker for setting the due date in edit view
+* [x] Implemented Date picker for setting the due date in edit DialogFragment.
 * [x] Used db schema and contract class for good readability(https://developer.android.com/training/basics/data-storage/databases.html)
-* [x] Toast message display on clicking add button with null or empty new item
-toolbar
+* [x] Name cannot be null. Toast message display on clicking add button with null or empty new item. Same in edit view.
+* [x] Color coded Priority.(Red - high, Orange - Medium, Blue - Low)
+* [x] Toolbar implementation
 
 ## Video Walkthrough 
 
@@ -42,6 +43,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 - changing colors for drawable
+- The implementation of DialogFragment. Spent > 10 hrs
+- implementing DatePicker from DialogFragment
+- Could not add download icon to toolbar. The code for toolbar set and read, write to file is present.
 
 ## License
 

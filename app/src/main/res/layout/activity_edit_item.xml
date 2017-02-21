@@ -90,11 +90,10 @@
             android:typeface="normal"
             android:fontFamily="serif" />
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:ems="10"
+            android:textSize="16sp"
             android:layout_margin="5dp"
             android:id="@+id/editTextFromDate" />
 
@@ -113,13 +112,15 @@
 
         <TextView
             android:text="Notes "
-            android:layout_width="wrap_content"
+            android:ems="10"
+            android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textStyle="normal|bold"
             android:textSize="14sp"
-            android:typeface="normal"
-            android:fontFamily="serif" />
+            android:textStyle="normal|bold"
+            android:fontFamily="serif"
+            android:typeface="normal" />
+
 
         <EditText
             android:inputType="textMultiLine"
@@ -145,14 +146,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnDeleteItem"
-            android:onClick="onDeleteItem"
             android:layout_margin="5dp"/>
 
         <Button
             android:text="Save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onSaveItem"
             android:id="@+id/btnSaveItem"
             android:layout_margin="5dp"/>
 

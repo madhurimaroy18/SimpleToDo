@@ -1,5 +1,7 @@
 package com.roy.simpletodo;
 
+import com.roy.simpletodo.com.roy.simpletodo.utils.DateTime;
+
 import java.util.Date;
 
 /**Defines each to do item
@@ -23,9 +25,7 @@ public class Item{
         this.notes = n;
     }
 
-    public Item(){
-
-    }
+    public Item(){}
 
     public String getId() {
         return id;
@@ -75,6 +75,26 @@ public class Item{
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public Item setItemFromFileRow(String row, String token) {
+        if(token == null) token = ",";  //default token
+        row.trim();
+        String[] fields = row.split(token);
+        Item item = new Item();
+        item.setName(fields[0]);
+        item.setPriority(PRIORITY.valueOf(fields[1]));
+        item.setDate(DateTime.stringToDate(fields[2], "MMM dd yyyy"));
+        item.setNotes(fields[3]);
+
+        return item;
+    }
+    public String getAllItemToString(String token){
+        if(token == null) token = ",";  //default token
+        String textRow = this.getName() + token + this.getPriority().toString()
+                + token + DateTime.dateToString(this.getDate(), "MMM dd yyyy")
+                + token + this.getNotes();
+        return textRow;
     }
 
     @Override
